@@ -1,0 +1,18 @@
+# Pasta com relatórios brutos em JSON
+cypress/cucumber-json/
+
+# Cache do Cypress
+cypress/.cache/
+node_modules/
+package-lock.json
+
+# Pasta de relatórios completos (deixa só o HTML se quiser)
+cypress/reports/
+
+# Prints e vídeos automáticos
+cypress/screenshots/
+cypress/videos/
+
+# Arquivos temporários
+*.log
+.DS_Store
