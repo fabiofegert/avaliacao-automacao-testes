@@ -20,7 +20,8 @@ jobs:
           node-version: '18'
 
       - name: 📥 Instalar dependências
-        run: npm install
+        run: cd mobile-tests && npm install
 
       - name: ✅ Executar testes automatizados (API, E2E, Carga)
-        run: echo "Rodando testes de API, carga e E2E (mobile só local)"
+        run: cd mobile-tests && npm test
+
