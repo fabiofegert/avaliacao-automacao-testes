@@ -1,2 +1,12 @@
+# Ignorar dependências
 node_modules/
+
+# Ignorar arquivos de carga JSON (se houver)
 carga-tests/*.json
+
+# Ignorar APKs
+mobile-tests/apps/*.apk
+
+# Ignorar relatórios do Allure
+allure-results/
+allure-report/
