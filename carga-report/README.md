@@ -1,10 +1,10 @@
-# Testes de Carga com K6 – Avaliação Técnica
+# 📈 Testes de Carga com K6 – Avaliação Técnica
 
 ## 🔍 Cenário Executado
 
 Realizei um teste de carga utilizando a ferramenta [K6](https://k6.io/) com o objetivo de validar o comportamento de uma API pública sob alta concorrência.
 
-- **API testada:** https://serverest.dev/usuarios
+- **API testada:** `https://serverest.dev/usuarios`
 - **Duração:** 5 minutos
 - **Usuários simultâneos (VUs):** 500
 - **Total de requisições:** 53.321
@@ -17,8 +17,8 @@ Realizei um teste de carga utilizando a ferramenta [K6](https://k6.io/) com o ob
 | Métrica                 | Valor               |
 |------------------------|---------------------|
 | Requisições totais     | 53.321              |
-| Sucesso (status 200)   | 8.794 (16.49%)      |
-| Falhas (timeouts, EOF) | 44.527 (83.5%)      |
+| Sucesso (status 200)   | 8.794 (16,49%)      |
+| Falhas (timeouts, EOF) | 44.527 (83,5%)      |
 | Duração média (req)    | 1.77s               |
 | Pico de resposta       | 17.99s              |
 
@@ -29,7 +29,7 @@ Realizei um teste de carga utilizando a ferramenta [K6](https://k6.io/) com o ob
 Durante a simulação, foi possível observar uma alta taxa de falhas (`unexpected EOF`, `timeout`, `connection reset`). Esses erros indicam que a API pública da ServeRest provavelmente possui:
 
 - Limitação de conexões simultâneas
-- Rejeição de requisições por throttle automático
+- Rejeição de requisições por throttling automático
 - Infraestrutura não preparada para testes de stress real
 
 Mesmo assim, o teste foi importante para:
@@ -47,7 +47,10 @@ Caso esse teste fosse aplicado em ambiente controlado (dev/staging), seria poss�
 
 ---
 
-## ▶️ Execução do teste
+## ▶️ Como Executar o Teste
 
-```bash
-k6 run teste_carga_oficial.js --out json=resultado-carga.json
+k6 run teste_carga_oficial.js --summary-export=resultado-carga.json
+
+👤 Autor
+Fábio Fegert
+GitHub • QA Automation • 2025
