@@ -1,61 +1,78 @@
-# Projeto de Avaliação – Automação de Testes
+# 📦 Projeto de Avaliação – Automação de Testes
 
-Este repositório contém a estrutura completa de testes automatizados para múltiplos contextos (API, E2E, Carga e Mobile), utilizando ferramentas modernas e práticas de CI/CD.
+Este repositório contém a estrutura completa de testes automatizados para múltiplos contextos (API, E2E, Carga e Mobile), utilizando ferramentas modernas, relatórios HTML e integração contínua.
+
+---
 
 ## 📁 Estrutura do Projeto
 
-```
 .
-├── api-tests/            # Testes de API
-├── carga-tests/          # Testes de carga (performance)
-├── e2e-tests/            # Testes end-to-end com Cypress
-├── mobile-tests/         # Testes mobile com WebdriverIO + Appium
-│   ├── configs/          # Configuração do WebdriverIO
-│   ├── test/specs/       # Casos de teste
-│   ├── apps/             # APK utilizado (ApiDemos)
-│   └── README.md         # Instruções específicas (opcional)
-├── .github/workflows/    # Pipeline de CI/CD
-│   └── ci.yml
+├── api-report/ # Testes de API com Cypress + Mochawesome
+├── carga-report/ # Testes de carga com K6 e relatório HTML
+├── e2e-report/ # Testes E2E com Cypress + Cucumber + Mochawesome
+├── mobile-tests/ # Testes Mobile com WebdriverIO + Appium
+│ ├── configs/ # Configuração do WebdriverIO
+│ ├── test/specs/ # Casos de teste mobile
+│ ├── apps/ # APK de testes (ApiDemos)
+│ └── README.md # Instruções específicas
+├── .github/workflows/ # Pipeline de CI/CD (simulado para mobile)
+│ └── ci.yml
 ├── .gitignore
 ├── package.json
-└── README.md             # Você está aqui
-```
+└── README.md # Você está aqui
+
+---
 
 ## 🧪 Execução dos Testes
 
-### 📌 Pré-requisitos
+### ✅ Pré-requisitos
 
 - Node.js 18+
-- Java instalado (para Appium)
+- Java JDK instalado (Appium)
 - Android SDK configurado (para testes mobile)
 - Appium 2 instalado globalmente
+- Cypress e WebdriverIO instalados localmente
 
-### ✅ Rodar testes Mobile localmente
+---
 
-```bash
+### ▶️ Rodar Testes Localmente
+
+#### API:
+
+cd api-report
+npx cypress run
+E2E:
+
+cd e2e-report
+npx cypress run
+Carga (K6):
+
+cd carga-report
+k6 run scripts/test-carga.js --summary-export=results/summary.json
+node generate-report.js
+Mobile:
+
 cd mobile-tests
 npm install
 npm test
-```
+📊 Relatórios
+API, E2E: mochawesome-report/mochawesome.html
 
-### 📊 Gerar Relatório Allure
+Carga: carga-report/results/summary.html
 
-```bash
-npm run report
-```
+Mobile: allure-report/index.html (via npm run report)
 
-### 🚀 CI/CD (GitHub Actions)
+🚀 CI/CD (GitHub Actions)
+O pipeline é executado automaticamente a cada push na branch master.
 
-O pipeline é executado automaticamente a cada push na branch `master`.
+Simula execução de testes Mobile
 
-- CI roda `npm test` dentro da pasta `mobile-tests/`
-- Relatórios são gerados localmente via Allure
-- Testes Mobile são simulados no CI por **limitação de ambiente** (GitHub Actions não suporta emuladores Android)
+Valida execução dos demais testes
 
-## ⚠️ Observação
+Gera relatórios locais
 
-Os testes **mobile** não são executados no GitHub Actions por limitações de ambiente. O pipeline CI foi ajustado para simular o processo e validar a integração.
+⚠️ Testes mobile não são executados no GitHub Actions, pois o ambiente não suporta emuladores Android. O pipeline valida apenas a integração.
 
-## 👨‍💻 Autor
+👨‍💻 Autor
+Fábio Fegert – github.com/fabiofegert
 
-Fábio Fegert – [github.com/fabiofegert](https://github.com/fabiofegert)
