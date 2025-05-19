@@ -35,9 +35,6 @@ e2e-tests/
 ├── package.json
 └── README.md
 
-yaml
-Copiar
-Editar
 
 ---
 
@@ -48,14 +45,10 @@ Editar
 ```bash
 npm install
 2. Executar os testes E2E
-bash
-Copiar
-Editar
+
 npm run test:e2e
 3. Gerar o relatório final em HTML
-bash
-Copiar
-Editar
+
 npm run merge:e2e
 npm run report:e2e
 📂 O relatório HTML será salvo em:

@@ -4,10 +4,10 @@
   "description": "Automatizar cenários E2E com foco em:\r - Login e navegação até formulário\r - Fluxo de checkout simples",
   "main": "cypress.config.js",
   "scripts": {
-    "test:e2e": "cypress run",
-    "merge:e2e": "mochawesome-merge cypress/reports/*.json > cypress/reports/merged-report.json",
-    "report:e2e": "marge cypress/reports/merged-report.json -o cypress/reports/html --reportFilename=index.html --reportTitle=\"Relatório E2E\""
-  },
+  "test:e2e": "npx cypress run --env cucumberJson=true",
+  "report:e2e": "node ./cypress/support/generate-report.js"
+}
+,
   "keywords": [],
   "author": "",
   "license": "ISC",

@@ -26,7 +26,7 @@ jobs:
 
       - name: ✅ Rodar testes API (Cypress)
         run: |
-          cd api-report
+          cd api-report/serverest
           npx cypress run || echo "⚠️ Testes de API falharam (sem bloquear pipeline)"
 
       - name: ✅ Rodar testes E2E (Cypress + Cucumber)
