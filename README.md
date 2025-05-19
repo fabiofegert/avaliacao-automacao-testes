@@ -1,44 +1,61 @@
-# Avaliação Técnica - Automação de Testes
+# Projeto de Avaliação – Automação de Testes
 
-Este repositório contém testes automatizados criados para validar operações na API [ServeRest](https://serverest.dev), usando Cypress como ferramenta principal.
+Este repositório contém a estrutura completa de testes automatizados para múltiplos contextos (API, E2E, Carga e Mobile), utilizando ferramentas modernas e práticas de CI/CD.
 
----
+## 📁 Estrutura do Projeto
 
-## 📁 Estrutura de Testes
+```
+.
+├── api-tests/            # Testes de API
+├── carga-tests/          # Testes de carga (performance)
+├── e2e-tests/            # Testes end-to-end com Cypress
+├── mobile-tests/         # Testes mobile com WebdriverIO + Appium
+│   ├── configs/          # Configuração do WebdriverIO
+│   ├── test/specs/       # Casos de teste
+│   ├── apps/             # APK utilizado (ApiDemos)
+│   └── README.md         # Instruções específicas (opcional)
+├── .github/workflows/    # Pipeline de CI/CD
+│   └── ci.yml
+├── .gitignore
+├── package.json
+└── README.md             # Você está aqui
+```
 
-- `getUsuarios.cy.js`  
-  Lista e valida o retorno de todos os usuários
+## 🧪 Execução dos Testes
 
-- `createUsuario.cy.js`  
-  Cria um novo usuário com dados dinâmicos
+### 📌 Pré-requisitos
 
-- `criarEValidarUsuario.cy.js`  
-  Cria e em seguida busca o usuário por e-mail para validar que ele foi persistido
+- Node.js 18+
+- Java instalado (para Appium)
+- Android SDK configurado (para testes mobile)
+- Appium 2 instalado globalmente
 
-- `editarEDeletarUsuario.cy.js`  
-  Realiza fluxo completo: criação, atualização (PUT) e exclusão (DELETE) de usuário
+### ✅ Rodar testes Mobile localmente
 
----
+```bash
+cd mobile-tests
+npm install
+npm test
+```
 
-## 🛠️ Boas práticas aplicadas
+### 📊 Gerar Relatório Allure
 
-- Comandos customizados em `cypress/support/commands/usuarios.js`
-- Dados dinâmicos com `Date.now()` para evitar duplicidade
-- Separação por arquivos e lógica clara
-- Uso de `failOnStatusCode: false` para capturar erros da API de forma controlada
-- Assertivas específicas para cada operação (`expect`, `to.be.oneOf`, `to.exist`, etc.)
+```bash
+npm run report
+```
 
----
+### 🚀 CI/CD (GitHub Actions)
 
-## 🚀 Tecnologias
+O pipeline é executado automaticamente a cada push na branch `master`.
 
-- [x] Cypress v14
-- [x] Node.js (ambiente local)
-- [x] GitHub como repositório remoto
+- CI roda `npm test` dentro da pasta `mobile-tests/`
+- Relatórios são gerados localmente via Allure
+- Testes Mobile são simulados no CI por **limitação de ambiente** (GitHub Actions não suporta emuladores Android)
 
----
+## ⚠️ Observação
 
-## 👤 Autor
+Os testes **mobile** não são executados no GitHub Actions por limitações de ambiente. O pipeline CI foi ajustado para simular o processo e validar a integração.
 
-**Fábio Fegert**  
-QA Sênior | Automação, Estratégia e Entregas com foco em qualidade realista
+## 👨‍💻 Autor
+
+Fábio Fegert – [github.com/fabiofegert](https://github.com/fabiofegert)
