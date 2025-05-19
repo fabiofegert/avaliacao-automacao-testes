@@ -35,10 +35,32 @@ Este repositório contém testes automatizados criados para validar operações 
 - [x] Cypress v14
 - [x] Node.js (ambiente local)
 - [x] GitHub como repositório remoto
+- [x] Mochawesome (relatórios HTML)
 
 ---
 
-## 👤 Autor
+## ▶️ Como rodar os testes e gerar o relatório HTML
 
-**Fábio Fegert**  
+### 1. Instalar dependências
+
+npm install
+2. Executar os testes (gera .json)
+
+npm run test
+3. Mover os relatórios para a pasta correta (se necessário)
+
+cd cypress/reports/json
+mkdir -p raw
+mv mochawesome*.json raw/
+4. Gerar o merged-report.json
+
+npx mochawesome-merge raw/*.json > merged-report.json
+5. Gerar o relatório HTML
+
+npx marge merged-report.json -f index -o ../html
+📄 Abrir o relatório
+
+cypress/reports/html/index.html
+👤 Autor
+Fábio Fegert
 QA Sênior | Automação, Estratégia e Entregas com foco em qualidade realista

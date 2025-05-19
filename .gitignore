@@ -10,3 +10,16 @@ mobile-tests/apps/*.apk
 # Ignorar relatórios do Allure
 allure-results/
 allure-report/
+
+# Ignorar relatórios mochawesome
+api-tests/cypress/reports/json/
+api-tests/cypress/reports/html/
+!api-tests/cypress/reports/html/index.html
+
+e2e-report/cypress/reports/json/
+e2e-report/cypress/reports/html/
+!e2e-report/cypress/reports/html/index.html
+
+carga-tests/reports/json/
+carga-tests/reports/html/
+!carga-tests/reports/html/index.html
