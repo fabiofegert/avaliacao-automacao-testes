@@ -1,66 +1,103 @@
-# Avaliação Técnica - Automação de Testes
+# 📦 Avaliação Técnica - Automação de Testes de API
 
-Este repositório contém testes automatizados criados para validar operações na API [ServeRest](https://serverest.dev), usando Cypress como ferramenta principal.
-
----
-
-## 📁 Estrutura de Testes
-
-- `getUsuarios.cy.js`  
-  Lista e valida o retorno de todos os usuários
-
-- `createUsuario.cy.js`  
-  Cria um novo usuário com dados dinâmicos
-
-- `criarEValidarUsuario.cy.js`  
-  Cria e em seguida busca o usuário por e-mail para validar que ele foi persistido
-
-- `editarEDeletarUsuario.cy.js`  
-  Realiza fluxo completo: criação, atualização (PUT) e exclusão (DELETE) de usuário
+Este repositório contém testes automatizados com **Cypress** para validar operações da API [ServeRest](https://serverest.dev).
 
 ---
 
-## 🛠️ Boas práticas aplicadas
+## 📁 Estrutura
 
-- Comandos customizados em `cypress/support/commands/usuarios.js`
-- Dados dinâmicos com `Date.now()` para evitar duplicidade
-- Separação por arquivos e lógica clara
-- Uso de `failOnStatusCode: false` para capturar erros da API de forma controlada
-- Assertivas específicas para cada operação (`expect`, `to.be.oneOf`, `to.exist`, etc.)
-
----
-
-## 🚀 Tecnologias
-
-- [x] Cypress v14
-- [x] Node.js (ambiente local)
-- [x] GitHub como repositório remoto
-- [x] Mochawesome (relatórios HTML)
+- `getUsuarios.cy.js` – Lista e valida usuários
+- `createUsuario.cy.js` – Cria novo usuário
+- `criarEValidarUsuario.cy.js` – Cria e busca por e-mail
+- `editarEDeletarUsuario.cy.js` – Fluxo completo (POST + PUT + DELETE)
 
 ---
 
-## ▶️ Como rodar os testes e gerar o relatório HTML
+## ✅ Requisitos
 
-### 1. Instalar dependências
+- Node.js 20+
+- Cypress 14.3.3
+- Mochawesome
+- API do ServeRest rodando localmente
 
+---
+
+## 🚀 Como executar os testes e gerar o relatório
+
+### 1. Clonar o projeto e acessar a pasta
+
+```
+cd api-report/serverest
+```
+
+> ⚠️ **Importante:** Certifique-se de que a API ServeRest esteja disponível e configurada localmente.
+
+---
+
+### 2. Instalar as dependências
+
+```
 npm install
-2. Executar os testes (gera .json)
+```
 
+---
+
+### 3. Executar os testes
+
+```
 npm run test
-3. Mover os relatórios para a pasta correta (se necessário)
+```
 
+Isso irá gerar arquivos `mochawesome*.json` na pasta `cypress/reports/json/`.
+
+---
+
+### 4. Mover os arquivos para a pasta `raw`
+
+```
 cd cypress/reports/json
 mkdir -p raw
 mv mochawesome*.json raw/
-4. Gerar o merged-report.json
+```
 
+---
+
+### 5. Gerar o arquivo mesclado
+
+```
 npx mochawesome-merge raw/*.json > merged-report.json
-5. Gerar o relatório HTML
+```
 
-npx marge merged-report.json -f index -o ../html
-📄 Abrir o relatório
+---
 
+### 6. Gerar o relatório final em HTML
+
+```
+npx marge raw/*.json -f index -o ../html
+```
+
+O relatório será salvo em:
+
+```
 cypress/reports/html/index.html
-👤 Autor
-Fábio Fegert
-QA Sênior | Automação, Estratégia e Entregas com foco em qualidade realista
+```
+
+> 📂 **Atenção:** A pasta `assets/` é essencial para o relatório funcionar corretamente. **Não remova.**
+
+---
+
+## 📄 Observações
+
+- Todos os testes usam comandos customizados para clareza e reuso.
+- A geração do relatório é feita com **mochawesome + marge**.
+- A execução também pode ser feita via script único:
+
+```
+npm run report
+```
+
+---
+
+## 🔗 Autor
+
+Fábio Fegert – *QA Sênior com foco em automação e performance*
