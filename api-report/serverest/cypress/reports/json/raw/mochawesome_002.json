@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2025-05-19T19:44:50.285Z",
-    "end": "2025-05-19T19:44:51.009Z",
-    "duration": 724,
+    "start": "2025-05-24T19:58:46.893Z",
+    "end": "2025-05-24T19:58:47.714Z",
+    "duration": 821,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "c4fd08fa-ee60-4c48-86a7-0e9975557264",
+      "uuid": "6b8d11ed-3583-41b1-bf69-559be3fa0242",
       "title": "",
       "fullFile": "cypress\\e2e\\usuarios\\editarEDeletarUsuario.cy.js",
       "file": "cypress\\e2e\\usuarios\\editarEDeletarUsuario.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "d5ce4c1c-f6de-459d-9ebc-cf14ceee4699",
+          "uuid": "506e424a-048d-4618-8740-a0a5c0bbd68b",
           "title": "ServeRest - Editar e Deletar Usuário",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "Deve criar, editar e deletar um usuário",
               "fullTitle": "ServeRest - Editar e Deletar Usuário Deve criar, editar e deletar um usuário",
               "timedOut": null,
-              "duration": 651,
+              "duration": 716,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -47,20 +47,20 @@
               "context": null,
               "code": "const timestamp = Date.now();\nconst nome = `Fábio QA ${timestamp}`;\nconst email = `fabio.qa.${timestamp}@teste.com`;\n// Cria o usuário\ncy.request({\n  method: 'POST',\n  url: 'https://serverest.dev/usuarios',\n  body: {\n    nome: nome,\n    email: email,\n    password: 'teste123',\n    administrador: 'true'\n  }\n}).then(res => {\n  const id = res.body._id;\n  expect(res.status).to.eq(201);\n  // Atualiza o nome\n  cy.atualizarUsuario(id, `${nome} Editado`);\n  // Deleta o usuário\n  cy.request({\n    method: 'DELETE',\n    url: `https://serverest.dev/usuarios/${id}`\n  }).then(del => {\n    expect(del.status).to.eq(200);\n  });\n});",
               "err": {},
-              "uuid": "6e5ecaf5-45df-4765-9501-5ce1e8203c36",
-              "parentUUID": "d5ce4c1c-f6de-459d-9ebc-cf14ceee4699",
+              "uuid": "f7d0b309-4fc0-4e3c-a6a5-0f015ca9c78c",
+              "parentUUID": "506e424a-048d-4618-8740-a0a5c0bbd68b",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "6e5ecaf5-45df-4765-9501-5ce1e8203c36"
+            "f7d0b309-4fc0-4e3c-a6a5-0f015ca9c78c"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 651,
+          "duration": 716,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

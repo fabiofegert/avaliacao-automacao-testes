@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2025-05-19T19:44:45.196Z",
-    "end": "2025-05-19T19:44:45.961Z",
-    "duration": 765,
+    "start": "2025-05-24T19:58:39.762Z",
+    "end": "2025-05-24T19:58:40.430Z",
+    "duration": 668,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "a9503bf5-7b01-4bba-bdce-3a305215133c",
+      "uuid": "5a65e414-7f19-4e86-a5c0-76650a30a8b8",
       "title": "",
       "fullFile": "cypress\\e2e\\usuarios\\createUsuario.cy.js",
       "file": "cypress\\e2e\\usuarios\\createUsuario.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "0d81dc07-6ed7-4d94-bdde-9c40f5562bd3",
+          "uuid": "b12c785b-88b3-4b38-95b2-8f5a43f648f4",
           "title": "ServeRest - Criar Usuário",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "Deve criar um usuário com sucesso (ou já existente)",
               "fullTitle": "ServeRest - Criar Usuário Deve criar um usuário com sucesso (ou já existente)",
               "timedOut": null,
-              "duration": 730,
+              "duration": 574,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -47,20 +47,20 @@
               "context": null,
               "code": "const timestamp = Date.now();\nconst nome = `Fábio QA ${timestamp}`;\nconst email = `fabio.qa.${timestamp}@teste.com`;\ncy.createUsuario(nome, email);",
               "err": {},
-              "uuid": "5d53e1fe-be1f-44d2-b7ff-fa4ea6d643c6",
-              "parentUUID": "0d81dc07-6ed7-4d94-bdde-9c40f5562bd3",
+              "uuid": "5eb56f1e-c1a0-455c-b984-fe3f02a1cd37",
+              "parentUUID": "b12c785b-88b3-4b38-95b2-8f5a43f648f4",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "5d53e1fe-be1f-44d2-b7ff-fa4ea6d643c6"
+            "5eb56f1e-c1a0-455c-b984-fe3f02a1cd37"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 730,
+          "duration": 574,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

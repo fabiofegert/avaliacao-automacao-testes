@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2025-05-19T19:44:52.759Z",
-    "end": "2025-05-19T19:44:53.140Z",
-    "duration": 381,
+    "start": "2025-05-24T19:58:49.326Z",
+    "end": "2025-05-24T19:58:49.689Z",
+    "duration": 363,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "8a0a80f8-bac6-487e-ad8a-d212d24fd35e",
+      "uuid": "82c19b68-d4ce-4886-ab85-de7b450f4020",
       "title": "",
       "fullFile": "cypress\\e2e\\usuarios\\getUsuarios.cy.js",
       "file": "cypress\\e2e\\usuarios\\getUsuarios.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "b98a592a-ab63-41a4-a1bc-acc0635b47ce",
+          "uuid": "9e9d4539-9dde-44f6-9510-d3065f6d6eaf",
           "title": "ServeRest - Usuários",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "Deve listar os usuários com sucesso",
               "fullTitle": "ServeRest - Usuários Deve listar os usuários com sucesso",
               "timedOut": null,
-              "duration": 350,
+              "duration": 336,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -47,20 +47,20 @@
               "context": null,
               "code": "cy.getUsuarios();",
               "err": {},
-              "uuid": "cc0eef59-e736-467a-861c-47cd19df0e53",
-              "parentUUID": "b98a592a-ab63-41a4-a1bc-acc0635b47ce",
+              "uuid": "9bdbdf6a-3197-40ef-8d16-312fa2d63422",
+              "parentUUID": "9e9d4539-9dde-44f6-9510-d3065f6d6eaf",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "cc0eef59-e736-467a-861c-47cd19df0e53"
+            "9bdbdf6a-3197-40ef-8d16-312fa2d63422"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 350,
+          "duration": 336,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2025-05-19T19:44:47.663Z",
-    "end": "2025-05-19T19:44:48.408Z",
-    "duration": 745,
+    "start": "2025-05-24T19:58:43.559Z",
+    "end": "2025-05-24T19:58:44.177Z",
+    "duration": 618,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "e93546cb-f936-4132-8b09-c9285b46eaf5",
+      "uuid": "dcbb331e-fb2b-4449-8c0c-43db663c8e62",
       "title": "",
       "fullFile": "cypress\\e2e\\usuarios\\criarEValidarUsuario.cy.js",
       "file": "cypress\\e2e\\usuarios\\criarEValidarUsuario.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "a049e258-3663-4f63-8e83-cc64382f3cfe",
+          "uuid": "c9ba53ae-1b05-4aee-842a-dce84fd06e62",
           "title": "ServeRest - Criar e Validar Usuário",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "Deve criar um usuário e confirmar que ele existe na listagem",
               "fullTitle": "ServeRest - Criar e Validar Usuário Deve criar um usuário e confirmar que ele existe na listagem",
               "timedOut": null,
-              "duration": 708,
+              "duration": 516,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -47,20 +47,20 @@
               "context": null,
               "code": "const timestamp = Date.now();\nconst nome = `Fábio QA ${timestamp}`;\nconst email = `fabio.qa.${timestamp}@teste.com`;\ncy.createUsuario(nome, email);\ncy.buscarUsuarioPorEmail(email);",
               "err": {},
-              "uuid": "88300cd5-cf06-44fe-b36c-4036a7aea529",
-              "parentUUID": "a049e258-3663-4f63-8e83-cc64382f3cfe",
+              "uuid": "a9fc81b4-8dab-43a0-9f3e-20c3c24ace9b",
+              "parentUUID": "c9ba53ae-1b05-4aee-842a-dce84fd06e62",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "88300cd5-cf06-44fe-b36c-4036a7aea529"
+            "a9fc81b4-8dab-43a0-9f3e-20c3c24ace9b"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 708,
+          "duration": 516,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
