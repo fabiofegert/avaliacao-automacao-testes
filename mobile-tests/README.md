@@ -1,85 +1,68 @@
-# 📱 Projeto: Automação de Testes Mobile – WebdriverIO + Appium
 
-Este projeto realiza a automação de testes mobile utilizando **WebdriverIO**, **Appium** e **Mocha**, focando no app de exemplo `ApiDemos-debug.apk`.
+# 🤖 Testes Mobile com Appium + WebdriverIO – Avaliação Técnica
 
----
-
-## 🧱 Estrutura de Pastas
-
-mobile-tests/
-├── apps/ # APK de teste
-│ └── ApiDemos-debug.apk
-├── configs/ # Configuração WDIO
-│ └── wdio.android.conf.js
-├── test/
-│ └── specs/
-│ └── basic/
-│ ├── login.spec.js
-│ └── form.spec.js
-├── node_modules/ # Dependências (ignorado no Git)
-├── allure-results/ # Resultados brutos (ignorado)
-├── allure-report/ # Relatório gerado (ignorado)
-├── package.json
-├── .gitignore
+Este projeto executa testes automatizados em dispositivos Android utilizando **WebdriverIO** com **Appium** e gera relatórios com **Allure**.
 
 ---
 
-## ⚙️ Tecnologias Utilizadas
+## 📱 Requisitos
 
-- [WebdriverIO](https://webdriver.io/)
-- [Appium](https://appium.io/)
-- Mocha (framework de testes)
-- Allure Reports (para relatório visual)
+- Node.js 20+
+- Android Studio (com emulador configurado)
+- Appium (instalado via npm)
+- Dispositivo/emulador Android conectado
+- Allure CLI instalado (`npm install -g allure-commandline`)
 
 ---
 
-## ▶️ Como Executar os Testes
+## 🚀 Como executar os testes
 
-### 1. Instalar dependências
+### 1. Inicie um emulador Android
 
-```bash
-npm install
+- Abra o Android Studio
+- Vá em `Device Manager`
+- Clique em ▶️ no emulador desejado
 
-2. Rodar todos os testes
-npm run test
+### 2. No terminal, execute os testes:
 
-📊 Gerar Relatório Allure
-1. Instale o Allure CLI (caso ainda não tenha):
-Instalação oficial
+```
+npm run test:local
+```
 
-2. Após rodar os testes:
+---
+
+## 📊 Gerar relatório Allure
+
+Após rodar os testes, gere o relatório com:
+
+```
 npm run report
+```
 
 Isso irá:
 
-Gerar o relatório atualizado
+- Gerar os dados na pasta `allure-report/`
+- Abrir o relatório automaticamente no navegador (`http://127.0.0.1:XXXXX`)
 
-Abrir no navegador local automaticamente
+---
 
-🧪 Testes incluídos
-login.spec.js
-→ Valida navegação e marcação de checkbox.
+## 🧪 Testes disponíveis
 
-form.spec.js
-→ Realiza scroll até "Edit text preference", preenche o campo, e valida o valor inserido.
+- `form.spec.js` – Preenchimento de formulário
+- `login.spec.js` – Teste de login
 
-📦 Scripts no package.json
+---
 
-json
-"scripts": {
-  "test": "npx wdio ./configs/wdio.android.conf.js",
-  "report": "allure generate allure-results --clean -o allure-report && allure open"
-}
-🚫 Arquivos ignorados (.gitignore)
-node_modules/
+## ⚠️ Possíveis erros e soluções
 
-allure-results/
+- **"Could not find a connected Android device"**  
+  Certifique-se de que um emulador Android está **ligado e pronto** antes de rodar os testes.
 
-allure-report/
+- **Appium não fecha corretamente?**  
+  Pode ignorar a falha do `taskkill` — isso não afeta o relatório ou os resultados dos testes.
 
-mobile-tests/apps/*.apk
+---
 
-✅ Autor
-Fábio Fegert
-Automação de testes mobile com foco em confiabilidade, estrutura limpa e relatórios profissionais.
+## 🔗 Autor
 
+Fábio Fegert – *QA Sênior com foco em automação mobile e performance*
