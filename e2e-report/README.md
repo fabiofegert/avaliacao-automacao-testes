@@ -1,84 +1,73 @@
-# 🧪 Projeto de Automação de Testes E2E
+# 🧪 Avaliação Técnica - Automação de Testes E2E
 
-Este projeto tem como objetivo demonstrar habilidades em automação de testes End-to-End (E2E) utilizando Cypress com Cucumber, cobrindo os seguintes cenários:
-
-- Login com sucesso e falha
-- Visualização de extrato
-- Abertura de conta
-- Fluxo de checkout simples com validações
-- Geração de relatório HTML para apresentação dos resultados
+Este repositório contém testes automatizados com **Cypress** e **Cucumber** para validar fluxos principais do sistema de abertura de conta, login e extrato.
 
 ---
 
-## 🚀 Tecnologias Utilizadas
+## 📁 Estrutura
 
-- **Cypress** `^14.3.3`
-- **Cucumber Preprocessor** (`@badeball/cypress-cucumber-preprocessor`)
-- **Gherkin (Cucumber Syntax)** para escrita dos cenários
-- **Page Object Pattern**
-- **Relatórios HTML** com `mochawesome` e `mochawesome-merge`
-
----
-
-## 📁 Estrutura de Pastas
-
-e2e-tests/
-├── features/ # Arquivos .feature (cenários Gherkin)
-├── cypress/
-│ ├── pages/ # Page Objects
-│ ├── reports/ # Relatórios HTML e JSON
-│ ├── screenshots/ # Capturas automáticas de falhas
-│ ├── support/
-│ │ ├── e2e.js # Arquivo de suporte geral
-│ │ └── step_definitions/ # Steps do Cucumber organizados
-├── cypress.config.js
-├── package.json
-└── README.md
-
+- `checkout.feature` – Abertura de conta com sucesso
+- `extrato.feature` – Acesso ao extrato da conta após login
+- `login.feature` – Login com senha válida e inválida
+- `step_definitions/` – Lógica dos passos em Gherkin
+- `pages/` – Page Objects centralizados
 
 ---
 
-## ⚙️ Como instalar e executar
+## ✅ Requisitos
 
-### 1. Instalar dependências
+- Node.js 18+
+- Cypress 12.17.4
+- @badeball/cypress-cucumber-preprocessor
+- Estrutura baseada em Gherkin e Page Object Pattern
 
-```bash
+---
+
+## 🚀 Como executar os testes
+
+### 1. Clonar o projeto e acessar a pasta
+
+```
+cd e2e-report
+```
+
+---
+
+### 2. Instalar as dependências
+
+```
 npm install
-2. Executar os testes E2E
+```
 
-npm run test:e2e
-3. Gerar o relatório final em HTML
+---
 
-npm run merge:e2e
-npm run report:e2e
-📂 O relatório HTML será salvo em:
-cypress/reports/html/index.html
+### 3. Executar os testes em modo headless
 
-✅ Cenários Automatizados
-login.feature
-Login com credenciais válidas
+```
+npx cypress run
+```
 
-Login com senha incorreta
+---
 
-extrato.feature
-Visualização do extrato de conta existente
+### 4. Executar os testes com interface gráfica (modo interativo)
 
-checkout.feature
-Abertura de conta com dados válidos após login
+```
+npx cypress open
+```
 
-👤 Autor
-Fábio Fegert
-Especialista em QA e Automação de Testes
+---
 
-📌 Observações
-As seguintes pastas estão no .gitignore para manter o repositório limpo:
+## 📼 Evidências
 
-node_modules/
+- Todos os testes geram **vídeos automáticos** com o fluxo completo.
+- Os vídeos ficam salvos em:
 
-cypress/screenshots/
-
+```
 cypress/videos/
+```
 
-cypress/reports/*.json
+---
 
-cypress/reports/html/
+## 🔗 Autor
+
+Fábio Fegert – *QA Sênior com foco em automação, performance e qualidade contínua*

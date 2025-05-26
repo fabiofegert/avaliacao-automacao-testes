@@ -40,7 +40,12 @@ jobs:
           npm install || true # caso tenha dependências no futuro
           k6 run scripts/test-carga.js --summary-export=results/summary.json || echo "⚠️ Teste de carga falhou (sem bloquear pipeline)"
 
-      - name: ✅ Rodar testes mobile
+      - name: ✅ Rodar testes mobile com Appium
         run: |
           cd mobile-tests
-          npm test || echo "⚠️ Testes mobile falharam (simulado)"
+          npm run test:local || echo "⚠️ Testes mobile falharam (sem bloquear pipeline)"
+
+      - name: 📊 Gerar relatório Allure
+        run: |
+          cd mobile-tests
+          npm run report
