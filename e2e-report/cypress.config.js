@@ -6,6 +6,7 @@ const addCucumberPreprocessorPlugin = require("@badeball/cypress-cucumber-prepro
 module.exports = defineConfig({
   e2e: {
     specPattern: "features/**/*.feature",
+    video: true,
     supportFile: "cypress/support/e2e.js",
     setupNodeEvents: async (on, config) => {
       await addCucumberPreprocessorPlugin(on, config, {
