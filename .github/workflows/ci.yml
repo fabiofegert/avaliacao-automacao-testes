@@ -17,14 +17,13 @@ jobs:
       - name: 🟢 Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: '22'
 
       - name: 📥 Instalar dependências
         run: |
           cd api-report/serverest && npm install
           cd ../../e2e-report && npm install
           cd ../mobile-tests && npm install
-          cd ../carga-report || true && npm install || true
 
       - name: ✅ Rodar testes API (Cypress)
         run: |
