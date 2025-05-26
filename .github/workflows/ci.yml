@@ -53,7 +53,17 @@ jobs:
 
       - name: 📼 Salvar vídeos como evidência
         if: always()
+        run: |
+         if [ -d "e2e-report/cypress/videos" ]; then
+           echo "📦 Compactando vídeos..."
+           tar -czf videos-e2e.tar.gz e2e-report/cypress/videos
+         else
+           echo "⚠️ Nenhum vídeo encontrado para upload."
+         fi
+
+      - name: 📼 Upload vídeos como evidência
+        if: always()
         uses: actions/upload-artifact@v3
         with:
           name: videos-e2e
-          path: e2e-report/cypress/videos
+          path: videos-e2e.tar.gz
