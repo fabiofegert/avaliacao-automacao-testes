@@ -63,7 +63,7 @@ jobs:
 
       - name: 📼 Upload vídeos como evidência
         if: always()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v3.1.3
         with:
           name: videos-e2e
           path: videos-e2e.tar.gz
