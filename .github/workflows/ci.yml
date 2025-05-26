@@ -35,6 +35,16 @@ jobs:
           cd e2e-report
           npx cypress run || echo "⚠️ Testes E2E falharam (sem bloquear pipeline)"
 
+      - name: 📥 Instalar K6
+        run: |
+          sudo apt update
+          sudo apt install -y gnupg ca-certificates
+          sudo mkdir -m 0755 -p /etc/apt/keyrings
+          curl -fsSL https://dl.k6.io/key.gpg | sudo gpg --dearmor -o /etc/apt/keyrings/k6-archive-keyring.gpg
+          echo "deb [signed-by=/etc/apt/keyrings/k6-archive-keyring.gpg] https://dl.k6.io/deb stable main" | sudo tee /etc/apt/sources.list.d/k6.list
+          sudo apt update
+          sudo apt install -y k6
+
       - name: ✅ Rodar teste de carga com K6
         run: |
           cd carga-report
@@ -53,12 +63,12 @@ jobs:
       - name: 📼 Salvar vídeos como evidência
         if: always()
         run: |
-         if [ -d "e2e-report/cypress/videos" ]; then
-           echo "📦 Compactando vídeos..."
-           tar -czf videos-e2e.tar.gz e2e-report/cypress/videos
-         else
-           echo "⚠️ Nenhum vídeo encontrado para upload."
-         fi
+          if [ -d "e2e-report/cypress/videos" ]; then
+            echo "📦 Compactando vídeos..."
+            tar -czf videos-e2e.tar.gz e2e-report/cypress/videos
+          else
+            echo "⚠️ Nenhum vídeo encontrado para upload."
+          fi
 
       - name: 📼 Upload vídeos como evidência
         if: always()
