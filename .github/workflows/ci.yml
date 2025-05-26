@@ -24,9 +24,15 @@ jobs:
           cd mobile-tests
           npm install
 
+      - name: 📥 Instalar dependências E2E
+        run: |
+          cd e2e-report
+          npm install
+
       - name: ✅ Rodar testes API (Cypress)
         run: |
           cd api-report/serverest
+          npm install
           npx cypress run || echo "⚠️ Testes de API falharam (sem bloquear pipeline)"
 
       - name: ✅ Rodar testes E2E (Cypress + Cucumber)
@@ -37,7 +43,7 @@ jobs:
       - name: ✅ Rodar teste de carga com K6
         run: |
           cd carga-report
-          npm install || true # caso tenha dependências no futuro
+          npm install || true
           k6 run scripts/test-carga.js --summary-export=results/summary.json || echo "⚠️ Teste de carga falhou (sem bloquear pipeline)"
 
       - name: ✅ Rodar testes mobile com Appium
@@ -48,4 +54,4 @@ jobs:
       - name: 📊 Gerar relatório Allure
         run: |
           cd mobile-tests
-          npm run report
+          npm run report || echo "⚠️ Relatório Allure falhou (sem bloquear pipeline)"
