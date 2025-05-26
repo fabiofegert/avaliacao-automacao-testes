@@ -19,20 +19,16 @@ jobs:
         with:
           node-version: '18'
 
-      - name: 📥 Instalar dependências do mobile
+      - name: 📥 Instalar dependências
         run: |
-          cd mobile-tests
-          npm install
-
-      - name: 📥 Instalar dependências E2E
-        run: |
-          cd e2e-report
-          npm install
+          cd api-report/serverest && npm install
+          cd ../../e2e-report && npm install
+          cd ../mobile-tests && npm install
+          cd ../carga-report || true && npm install || true
 
       - name: ✅ Rodar testes API (Cypress)
         run: |
           cd api-report/serverest
-          npm install
           npx cypress run || echo "⚠️ Testes de API falharam (sem bloquear pipeline)"
 
       - name: ✅ Rodar testes E2E (Cypress + Cucumber)
@@ -43,7 +39,6 @@ jobs:
       - name: ✅ Rodar teste de carga com K6
         run: |
           cd carga-report
-          npm install || true
           k6 run scripts/test-carga.js --summary-export=results/summary.json || echo "⚠️ Teste de carga falhou (sem bloquear pipeline)"
 
       - name: ✅ Rodar testes mobile com Appium
@@ -55,3 +50,10 @@ jobs:
         run: |
           cd mobile-tests
           npm run report || echo "⚠️ Relatório Allure falhou (sem bloquear pipeline)"
+
+      - name: 📼 Salvar vídeos como evidência
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: videos-e2e
+          path: e2e-report/cypress/videos
