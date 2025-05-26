@@ -1,78 +1,116 @@
-# 📦 Projeto de Avaliação – Automação de Testes
 
-Este repositório contém a estrutura completa de testes automatizados para múltiplos contextos (API, E2E, Carga e Mobile), utilizando ferramentas modernas, relatórios HTML e integração contínua.
+# ✅ Avaliação Técnica - Automação de Testes Completa
 
----
+Este repositório contém a automação completa de testes para três pilares principais:
 
-## 📁 Estrutura do Projeto
-
-.
-├── api-report/ # Testes de API com Cypress + Mochawesome
-├── carga-report/ # Testes de carga com K6 e relatório HTML
-├── e2e-report/ # Testes E2E com Cypress + Cucumber + Mochawesome
-├── mobile-tests/ # Testes Mobile com WebdriverIO + Appium
-│ ├── configs/ # Configuração do WebdriverIO
-│ ├── test/specs/ # Casos de teste mobile
-│ ├── apps/ # APK de testes (ApiDemos)
-│ └── README.md # Instruções específicas
-├── .github/workflows/ # Pipeline de CI/CD (simulado para mobile)
-│ └── ci.yml
-├── .gitignore
-├── package.json
-└── README.md # Você está aqui
+- **Testes de API** com Cypress + Mochawesome
+- **Testes de Carga** com K6
+- **Testes E2E Mobile e Web** com WebdriverIO e Cypress+Cucumber
 
 ---
 
-## 🧪 Execução dos Testes
+## 📦 Estrutura do Projeto
 
-### ✅ Pré-requisitos
-
-- Node.js 18+
-- Java JDK instalado (Appium)
-- Android SDK configurado (para testes mobile)
-- Appium 2 instalado globalmente
-- Cypress e WebdriverIO instalados localmente
+```
+avaliacao-automacao-testes/
+│
+├── api-report/              # Testes de API com Cypress
+│   └── serverest/           # Testes da API ServeRest com relatório Mochawesome
+│
+├── carga-report/            # Testes de carga com K6
+│   └── scripts/             # Scripts de performance K6
+│
+├── mobile-tests/            # Testes mobile automatizados com Appium + WebdriverIO
+│   └── apps/                # APKs e apps testados
+│
+├── e2e-report/              # Testes E2E Web com Cypress + Cucumber
+│   ├── features/            # Cenários em Gherkin
+│   ├── support/             # Step definitions e configurações
+│   └── pages/               # Page Objects
+```
 
 ---
 
-### ▶️ Rodar Testes Localmente
+## 🧪 Testes de API
 
-#### API:
+**Local: `api-report/serverest/`**
 
-cd api-report
-npx cypress run
-E2E:
+- Realiza testes de criação, edição, exclusão e listagem de usuários na API [ServeRest](https://serverest.dev)
+- Geração de relatórios em JSON e HTML com Mochawesome
 
-cd e2e-report
-npx cypress run
-Carga (K6):
-
-cd carga-report
-k6 run scripts/test-carga.js --summary-export=results/summary.json
-node generate-report.js
-Mobile:
-
-cd mobile-tests
+### Executar testes de API:
+```
+cd api-report/serverest
 npm install
 npm test
-📊 Relatórios
-API, E2E: mochawesome-report/mochawesome.html
+```
 
-Carga: carga-report/results/summary.html
+---
 
-Mobile: allure-report/index.html (via npm run report)
+## ⚙️ Testes de Carga
 
-🚀 CI/CD (GitHub Actions)
-O pipeline é executado automaticamente a cada push na branch master.
+**Local: `carga-report/`**
 
-Simula execução de testes Mobile
+- Executa simulações de carga com múltiplos usuários utilizando o K6
+- Exporta relatório `summary.json` e `summary.html`
 
-Valida execução dos demais testes
+### Executar teste de carga:
+```
+cd carga-report
+npm install
+k6 run scripts/test-carga.js --summary-export=results/summary.json
+```
 
-Gera relatórios locais
+---
 
-⚠️ Testes mobile não são executados no GitHub Actions, pois o ambiente não suporta emuladores Android. O pipeline valida apenas a integração.
+## 📱 Testes Mobile
 
-👨‍💻 Autor
-Fábio Fegert – github.com/fabiofegert
+**Local: `mobile-tests/`**
 
+- Executa testes com WebdriverIO e Appium em dispositivos Android
+- Utiliza o APK `ApiDemos` para validação de elementos e navegação
+
+### Executar testes mobile:
+```
+cd mobile-tests
+npm install
+npm run test:local
+```
+
+> É necessário que o emulador Android esteja aberto antes de executar.
+
+---
+
+## 🌐 Testes E2E Web (Cucumber)
+
+**Local: `e2e-report/`**
+
+Testes web com Cypress + Cucumber:
+
+- `checkout.feature` – Criação de conta
+- `login.feature` – Login com sucesso e falha
+- `extrato.feature` – Visualização de extrato
+- Baseado em **Page Object Pattern** com evidências de vídeo e screenshots.
+
+### Executar testes E2E:
+```
+cd e2e-report
+npm install
+npm test
+```
+
+---
+
+## 📼 Evidências
+
+- **API**: `api-report/serverest/cypress/reports/`
+- **Carga**: `carga-report/results/summary.html`
+- **Mobile**: `mobile-tests/allure-report/`
+- **E2E Web**: `e2e-report/cypress/videos/` e `screenshots/`
+
+---
+
+## 🔗 Autor
+
+**Fábio Fegert**  
+*QA Sênior com foco em automação, performance e qualidade contínua*
